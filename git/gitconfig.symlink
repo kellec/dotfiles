@@ -8,7 +8,6 @@
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
     path =
 [alias]
-    
     co = checkout
     cob = checkout -b
     st = status
