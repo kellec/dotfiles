@@ -3,20 +3,18 @@ cask_args appdir: '/Applications'
 tap 'caskroom/cask'
 tap 'homebrew/bundle'
 tap 'caskroom/versions'
+tap 'caskroom/fonts'
 
 # cli tools
-brew install ack
+brew 'ack'
 
 # development tools
-brew install git
-brew install macvim --override-system-vim
-brew install reattach-to-user-namespace
-brew install tmux
-brew install zsh
-brew install nvm
-
-# install neovim
-brew install neovim/neovim/neovim
+brew 'git'
+brew 'macvim', args: ['override-system-vim']
+brew 'reattach-to-user-namespace'
+brew 'tmux'
+brew 'zsh'
+brew 'nvm'
 
 # apps
 cask 'firefox'
@@ -25,3 +23,4 @@ cask 'slack'
 cask 'iterm2'
 cask 'sourcetree'
 cask 'sublime-text3'
+cask 'font-inconsolata-for-powerline'
