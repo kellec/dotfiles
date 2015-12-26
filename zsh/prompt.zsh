@@ -18,9 +18,9 @@ git_dirty() {
     # check if it's dirty
     command git diff --quiet --ignore-submodules HEAD &>/dev/null;
     if [[ $? -eq 1 ]]; then
-        echo "%F{red}✖%f"
+        echo "%F{red}❖%f"
     else
-        echo "%F{green}✔%f"
+        echo "%F{green}❖%f"
     fi
 }
 
@@ -57,14 +57,13 @@ suspended_jobs() {
     if [[ $sj == "" ]]; then
         echo ""
     else
-        echo "%{$FG[208]%}✱%f"
+        echo "%{$FG[208]%}✱ %f"
     fi
 }
 
 precmd() {
     vcs_info
-    print -P '\n%F{205}%~'
+    print -P '%{$fg[blue]%}%n%{$reset_color%}: %{$fg[green]%}%~%{$reset_color%} `git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`'
 }
 
-export PROMPT='%(?.%F{205}.%F{red})➜%f '
-export RPROMPT='`git_dirty`%F{241}$vcs_info_msg_0_%f `git_arrows``suspended_jobs`'
+export PROMPT='%{$fg[cyan]%}⤏ %f '

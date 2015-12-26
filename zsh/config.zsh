@@ -5,6 +5,7 @@ setopt LOCAL_OPTIONS
 setopt LOCAL_TRAPS
 #setopt IGNORE_EOF
 setopt PROMPT_SUBST
+setopt AUTOCD
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
