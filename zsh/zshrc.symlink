@@ -47,15 +47,15 @@ fi
 
 # Base16 Shell
 # if [ -z "$THEME" ]; then
-    export THEME="oceanic-next"
+    # export THEME="oceanic-next"
 # fi
-if [ -z "$BACKGROUND" ]; then
-    export BACKGROUND="dark"
-fi
+# if [ -z "$BACKGROUND" ]; then
+    # export BACKGROUND="dark"
+# fi
 
-BASE16_SHELL="$DOTFILES/.config/oceanic-next-shell/$THEME.$BACKGROUND.sh"
+# BASE16_SHELL="$DOTFILES/.config/oceanic-next-shell/$THEME.$BACKGROUND.sh"
 # [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-source $BASE16_SHELL
+# source $BASE16_SHELL
 
 
 

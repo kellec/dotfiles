@@ -16,6 +16,9 @@ brew 'tmux'
 brew 'zsh'
 brew 'nvm'
 
+#fonts
+cask 'font-inconsolata-for-powerline'
+
 # apps
 cask 'firefox'
 cask 'google-chrome'
@@ -23,4 +26,3 @@ cask 'slack'
 cask 'iterm2'
 cask 'sourcetree'
 cask 'sublime-text3'
-cask 'font-inconsolata-for-powerline'
