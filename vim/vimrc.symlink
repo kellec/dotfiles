@@ -1,0 +1,240 @@
+" =================================================
+" General
+" =================================================
+
+" load plugins from vundle
+source ~/.vim/plugins.vim
+
+set nocompatible " not compatible with vi
+set autoread " detect when a file is changed
+
+" make backspace behave in a sane manner
+set backspace=indent,eol,start
+
+" set a map leader for more key combos
+let mapleader = ','
+let g:mapleader = ','
+
+set history=1000 " change history to 1000
+set textwidth=120
+
+" Tab control
+set smarttab " tab respects 'tabstop', 'shiftwidth', and 'softtabstop'
+set tabstop=2 " the visible width of tabs
+set softtabstop=2 " edit as if the tabs are 4 characters wide
+set shiftwidth=2 " number of spaces to use for indent and unindent
+set shiftround " round indent to a multiple of 'shiftwidth'
+set completeopt+=longest
+
+set clipboard=unnamed
+
+if has('mouse')
+    set mouse=a
+    set ttymouse=xterm2
+endif
+
+" =================================================
+"  User Interface
+" =================================================
+set title " set terminal title
+
+" Searching
+set ignorecase " case insensitive searching
+set smartcase " case-sensitive if expresson contains a capital letter
+set hlsearch
+
+" switch syntax highlighting on
+syntax on
+
+set encoding=utf8
+scriptencoding utf-8
+let base16colorspace=256  " Access colors present in 256 colorspace
+set t_Co=256 " Explicitly tell vim that the terminal supports 256 colors
+set background=dark
+colorscheme base16-ocean
+
+set number " show line numbers
+" set relativenumber " show relative line numbers
+set number " show the current line number
+set numberwidth=6
+
+set wrap "turn on line wrapping
+set wrapmargin=8 " wrap lines when coming within n characters from side
+set linebreak " set soft wrapping
+set showbreak=… " show ellipsis at breaking
+
+set autoindent " automatically set indent of new line
+set smartindent
+
+highlight LineNr ctermbg=black
+
+
+" =================================================
+"  Files, backups, and undo
+" =================================================
+
+"set nobackup
+"set nowritebackup
+"set noswapfile
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+
+" =================================================
+"  StatusLine
+" =================================================
+
+set laststatus=2 " show the satus line all the time
+
+" =================================================
+"  Mappings
+" =================================================
+" General mappings/shortcuts for functionality
+" Additional, plugin-specific mappings are located under
+" the plugins section
+
+" remap esc
+inoremap jj <esc>
+
+" remove extra whitespace
+nmap <leader><space> :%s/\s\+$<cr>
+
+" disable Ex mode
+noremap Q <NOP>
+
+" toggle paste mode
+map <leader>v :set paste!<cr>
+
+" clear highlighted search
+noremap <space> :set hlsearch! hlsearch?<cr>
+
+" activate spell-checking alternatives
+nmap ;s :set invspell spelllang=en<cr>
+
+" invisible characters
+set list
+set listchars=tab:——
+set showbreak=↪
+
+
+" Textmate style indentation
+vmap <leader>[ <gv
+vmap <leader>] >gv<
+nmap <leader>[ <<
+nmap <leader>] >>
+
+" scroll the viewport faster
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
+" moving up and down work as you would expect
+nnoremap <silent> j gj
+nnoremap <silent> k gk
+nnoremap <silent> ^ g^
+nnoremap <silent> $ g$
+
+" search for word under the cursor
+nnoremap <leader>/ "fyiw :/<c-r>f<cr>
+
+" inoremap <tab> <c-r>=Smart_TabComplete()<CR>
+
+map <leader>r :call RunCustomCommand()<cr>
+" map <leader>s :call SetCustomCommand()<cr>
+let g:silent_custom_command = 0
+
+
+" =================================================
+"  Functions
+" =================================================
+
+" Window movement shortcuts
+" move to the window in the direction shown, or create a new window
+function! WinMove(key)
+    let t:curwin = winnr()
+    exec "wincmd ".a:key
+    if (t:curwin == winnr())
+        if (match(a:key,'[jk]'))
+            wincmd v
+        else
+            wincmd s
+        endif
+        exec "wincmd ".a:key
+    endif
+endfunction
+
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+
+function! HtmlUnEscape()
+  silent s/&lt;/</eg
+  silent s/&gt;/>/eg
+  silent s/&amp;/\&/eg
+endfunction
+
+nnoremap <silent> <leader>u :call HtmlUnEscape()<cr>
+
+
+" =================================================
+"  Plugins
+" =================================================
+
+" close NERDTree after a file is opened
+" let g:NERDTreeQuitOnOpen=0
+" show hidden files in NERDTree
+let NERDTreeShowHidden=1
+" remove some files by extension
+let NERDTreeIgnore = ['\.DS_Store$']
+" Toggle NERDTree
+nmap <silent> <leader>' :NERDTreeToggle<cr>
+" expand to the path of the file in the current buffer
+nmap <silent> <leader>y :NERDTreeFind<cr>
+
+" map fuzzyfinder (CtrlP) plugin
+nmap <silent> <leader>r :CtrlPBuffer<cr>
+let g:ctrlp_map='<leader>p'
+let g:ctrlp_dotfiles=1
+let g:ctrlp_working_path_mode = 'ra'
+
+" Fugitive Shortcuts
+nmap <silent><leader>gb :Gblame<cr>
+
+" toggle syntastic
+nmap <leader>s :SyntasticToggleMode<cr>
+
+" CtrlP ignore patterns
+" let g:ctrlp_custom_ignore = {
+"             \ 'dir': '\.git$\|node_modules$\|bower_components$\|\.hg$\|\.svn$',
+"             \ 'file': '\.exe$\|\.so$'
+"             \ }
+" only show files that are not ignored by git
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+" search the nearest ancestor that contains .git, .hg, .svn
+let g:ctrlp_working_path_mode = 2
+
+" indentLink options
+let g:indentLine_color_term = 235
+let g:indentLine_char = '︙'
+let g:indentLine_leadingSpaceEnabled=1
+let g:indentLine_leadingSpaceChar = '·'
+
+" airline options
+let g:airline_powerline_fonts=1
+let g:airline_theme='base16'
+let g:airline#extensions#tabline#enabled = 1
+
+" don't hide quotes in json files
+let g:vim_json_syntax_conceal = 0
+
+if (has("gui_running"))
+    set guioptions=egmrt
+    set background=light
+    colorscheme solarized
+    let g:airline_left_sep=''
+    let g:airline_right_sep=''
+    let g:airline_powerline_fonts=0
+    let g:airline_theme='solarized'
+endif
+
+" call ApplyLocalSettings(expand('.'))
