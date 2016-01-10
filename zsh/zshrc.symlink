@@ -21,6 +21,8 @@ for config ($ZSH/**/*completion.sh) source $config
 export EDITOR='vim'
 
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+
 
 # add /usr/local/sbin
 if [[ -d /usr/local/sbin ]]; then
