@@ -29,7 +29,7 @@
       <key>settings</key>
       <dict>
         <key>background</key>
-        <string>#212121</string>
+        <string>#263238</string>
         <key>caret</key>
         <string>#FFCC00</string>
         <key>foreground</key>
@@ -39,15 +39,15 @@
         <key>lineHighlight</key>
         <string>#00000030</string>
         <key>selection</key>
-        <string>#61616140</string>
+        <string>#80CBC420</string>
         <key>guide</key>
-        <string>#42424260</string>
+        <string>#37474F80</string>
         <key>activeGuide</key>
-        <string>#424242</string>
+        <string>#80CBC470</string>
         <key>stackGuide</key>
-        <string>#42424280</string>
+        <string>#37474Fff</string>
         <key>gutterForeground</key>
-        <string>#424242</string>
+        <string>#37474F</string>
         <key>findHighlight</key>
         <string>#F8E71C</string>
         <key>tagsOptions</key>
@@ -55,7 +55,7 @@
         <key>shadow</key>
         <string>#00000010</string>
         <key>selectionBorder</key>
-        <string>#4F4F4F</string>
+        <string>#516B79</string>
       </dict>
     </dict>
     <dict>
@@ -66,7 +66,7 @@
       <key>settings</key>
       <dict>
         <key>foreground</key>
-        <string>#444444</string>
+        <string>#546E7A</string>
       </dict>
     </dict>
     <dict>
@@ -358,7 +358,7 @@
       <key>settings</key>
       <dict>
         <key>foreground</key>
-        <string>#424242</string>
+        <string>#37474F</string>
       </dict>
     </dict>
     <dict>
