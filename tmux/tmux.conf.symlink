@@ -14,11 +14,11 @@ set -g prefix C-a
 bind C-a send-prefix
 
 # Use mouse for copy mode, choice mode etc.
-set -g mode-mouse on
+set -g mouse on
 # Resize panes by dragging their borders.
-set -g mouse-resize-pane on
+# set -g mouse-resize-pane on
 # Clicking pane selects that pane and passes click to the program in that pane.
-set -g mouse-select-pane on
+# set -g mouse-select-pane on
 
 # for nested tmux sessions
 # bind-key a send-prefix
@@ -75,10 +75,10 @@ bind -r J resize-pane -D 10
 bind -r K resize-pane -U 10
 bind -r L resize-pane -R 10
 
-# bind -T root WheelUpPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; copy-mode -e; send-keys -M"
-# bind -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; send-keys -M"
-# bind-key -t vi-copy WheelUpPane halfpage-up
-# bind-key -t vi-copy WheelDownPane halfpage-down
+bind -T root WheelUpPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; copy-mode -e; send-keys -M"
+bind -T root WheelDownPane if-shell -F -t = "#{alternate_on}" "select-pane -t =; send-keys -M" "select-pane -t =; send-keys -M"
+bind-key -t vi-copy WheelUpPane halfpage-up
+bind-key -t vi-copy WheelDownPane halfpage-down
 
 
 # ##############################
