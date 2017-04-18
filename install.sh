@@ -23,12 +23,12 @@ if [ "$(uname)" == "Darwin" ]; then
     source install/nvm.sh
 fi
 
-echo "\n\nCreating vim directories"
+echo -e "\n\nCreating vim directories"
 echo "=============================="
 mkdir -p ~/.vim-tmp
 
 
-echo "\n\nConfiguring zsh as default shell"
+echo -e "\n\nConfiguring zsh as default shell"
 echo "=============================="
 chsh -s $(which zsh)
 

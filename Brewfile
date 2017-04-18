@@ -20,9 +20,3 @@ brew 'nvm'
 cask 'font-inconsolata-for-powerline'
 
 # apps
-cask 'firefox'
-cask 'google-chrome'
-cask 'slack'
-cask 'iterm2'
-cask 'sourcetree'
-cask 'sublime-text3'
