@@ -15,13 +15,6 @@ for file in $linkables ; do
     fi
 done
 
-echo -e "\n\nSymlink Sublime Text prefs"
-echo "=============================="
-sublime_dir=~/Library/Application\ Support/Sublime\ Text\ 3/Packages
-mv "$sublime_dir/User" "$sublime_dir/User.backup"
-ln -s "$DOTFILES/sublime/User" "$sublime_dir"
-
-
 echo -e "\n\nInstalling to ~/.config"
 echo "=============================="
 if [ ! -d $HOME/.config ]; then
