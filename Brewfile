@@ -7,6 +7,7 @@ tap 'caskroom/fonts'
 
 # cli tools
 brew 'ack'
+brew 'gpg'
 
 # development tools
 brew 'git'

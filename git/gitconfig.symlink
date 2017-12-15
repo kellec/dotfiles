@@ -32,3 +32,4 @@
     ff = only
 [commit]
 	template = /Users/kelle/.stCommitMsg
+	gpgsign = true
