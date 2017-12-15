@@ -1,5 +1,5 @@
 # reload zsh config
-alias reload!='source ~/.zshrc'
+alias rl='source ~/.zshrc'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -21,7 +21,8 @@ alias lld="ls -l | grep ^d"
 alias rmf="rm -rf"
 
 # Dev
-alias be='bundle exec'
+alias b="bundle"
+alias be='b exec'
 
 # Helpers
 alias grep='grep --color=auto'
