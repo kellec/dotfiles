@@ -18,8 +18,7 @@ brew 'nvm'
 brew 'yarn'
 
 #fonts
-cask 'font-inconsolata-for-powerline'
-cask 'font-fira-code'
+cask 'font-firacode-nerd-font'
 
 # apps
 cask 'firefox'
@@ -30,3 +29,4 @@ cask 'sequel-pro'
 cask 'slack'
 cask 'sourcetree'
 cask 'visual-studio-code'
+cask 'licecap'
