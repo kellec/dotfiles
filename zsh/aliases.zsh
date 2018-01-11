@@ -21,6 +21,7 @@ alias lld="ls -l | grep ^d"
 alias rmf="rm -rf"
 
 # Dev
+alias g="git"
 alias b="bundle"
 alias be='b exec'
 
