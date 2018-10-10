@@ -20,10 +20,28 @@ alias ll="ls -lFh ${colorflag}"
 alias lld="ls -l | grep ^d"
 alias rmf="rm -rf"
 
-# Dev
+# git
 alias g="git"
+alias gut="git"
+alias got="git"
+alias ga="git add"
+alias gaa="git add ."
+alias gai="git add -i"
+alias gap="git add -p"
+alias gb="git branch"
+alias gc="git commit -v"
+alias gca="git commit --amend --no-edit"
+alias gp="git push"
+alias gpf="git push -f"
+alias gri="git rebase -i"
+alias grm="git rebase -v origin/master"
+alias squish="git rebase -i --autosquash"
+
+# Ruby
 alias b="bundle"
 alias be='b exec'
+
+alias df="code ~/.dotfiles"
 
 # Helpers
 alias grep='grep --color=auto'

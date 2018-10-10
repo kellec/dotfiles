@@ -1,7 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/Users/kelle/.dotfiles'
-let g:netrw_dirhist_2='/Users/kelle/.dotfiles/tmux'
-let g:netrw_dirhist_3='/Users/kelle/envato/elements-contributors'
-let g:netrw_dirhist_4='/Users/kelle/envato/elements-contributors/.buildkite'
-let g:netrw_dirhist_5='/Users/kelle/.bundle'
+let g:netrw_dirhist_2='/Users/kelle/.dotfiles/zsh'
+let g:netrw_dirhist_3='/Users/kelle/.dotfiles'
+let g:netrw_dirhist_4='/Users/kelle/.dotfiles/vim'
