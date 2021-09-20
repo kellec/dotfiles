@@ -1,13 +1,18 @@
 export DOTFILES=$HOME/.dotfiles
-export ZSH=$DOTFILES/zsh
+export ZSH=$DOTFILES/.ohmyzsh
+export TERM=xterm-256color
 
 export GPG_TTY=$(tty)
 
-# display how long all tasks over 10 seconds take
-export REPORTTIME=10
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+export ZSH_CUSTOM="$DOTFILES/zsh"
 
 # source all .zsh files inside of the zsh/ directory
-for config ($ZSH/**/*.zsh) source $config
+# for config ($ZSH_CUSTOM/**/*.zsh) source $config
+source $ZSH_CUSTOM/aliases.zsh
+source $ZSH_CUSTOM/tmux.zsh
 
 if [[ -a ~/.localrc ]]; then
     source ~/.localrc
@@ -15,21 +20,21 @@ fi
 
 
 # initialize autocomplete
-autoload -U compinit
-compinit
+# autoload -U compinit
+# compinit
 
-for config ($ZSH/**/*completion.sh) source $config
+# for config ($ZSH_CUSTOM/**/*completion.sh) source $config
 
 export EDITOR='vim'
 
 export PATH="$HOME/.rbenv/shims:$PATH"
-# export PATH="$HOME/.rbenv/bin:$PATH"
-# if hash rbenv 2>/dev/null; then
-#     eval "$(rbenv init -)"
-# fi
 
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
 
 
 # add /usr/local/sbin
@@ -45,8 +50,6 @@ if [[ -d ~/bin ]]; then
     export PATH=~/bin:$PATH
 fi
 
-[ -z "$TMUX" ] && export TERM=xterm-256color
-
 # source nvm
 # export NVM_DIR=~/.nvm
 
@@ -56,15 +59,22 @@ fi
 
 
 # Base16 Shell
-if [ -z "$THEME" ]; then
-    export THEME="oceanic-next"
-fi
-if [ -z "$BACKGROUND" ]; then
-    export BACKGROUND="dark"
-fi
 
-BASE16_SHELL="$DOTFILES/.config/oceanic-next-shell/$THEME.$BACKGROUND.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-source $BASE16_SHELL
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+        eval "$("$BASE16_SHELL/profile_helper.sh")"
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
+if [ -f $(brew --prefix asdf)/asdf.sh ]; then
+    . $(brew --prefix asdf)/asdf.sh
+    # . $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+fi
+
+ZSH_THEME="prompt"
+

@@ -1,7 +1,7 @@
 # gitconfig
 [user]
-    name = Kelle Connolly
-    email = kelle.connolly@gmail.com
+	name = Kelle Connolly
+	email = kelle.connolly@gmail.com
 [core]
 	excludesfile = /Users/kelle/.gitignore_global
 [difftool "sourcetree"]
@@ -31,5 +31,10 @@
 [pull]
     ff = only
 [commit]
+	#gpgsign = true
 	template = /Users/kelle/.stCommitMsg
-	gpgsign = true
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

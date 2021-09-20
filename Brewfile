@@ -14,7 +14,6 @@ brew 'git'
 brew 'reattach-to-user-namespace'
 brew 'tmux'
 brew 'zsh'
-brew 'nvm'
 brew 'yarn'
 
 #fonts
