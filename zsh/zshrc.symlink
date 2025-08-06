@@ -1,18 +1,17 @@
-export DOTFILES=$HOME/.dotfiles
-export ZSH=$DOTFILES/.ohmyzsh
-export TERM=xterm-256color
-
+plugins=(git)
 export GPG_TTY=$(tty)
 
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
+export DOTFILES=$HOME/.dotfiles
 export ZSH_CUSTOM="$DOTFILES/zsh"
+
+export TERM=xterm-256color
 
 # source all .zsh files inside of the zsh/ directory
 # for config ($ZSH_CUSTOM/**/*.zsh) source $config
 source $ZSH_CUSTOM/aliases.zsh
 source $ZSH_CUSTOM/tmux.zsh
+source $ZSH_CUSTOM/prompt.zsh
+
 
 if [[ -a ~/.localrc ]]; then
     source ~/.localrc
@@ -29,26 +28,24 @@ export EDITOR='vim'
 
 export PATH="$HOME/.rbenv/shims:$PATH"
 
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
+export ASDF_DATA_DIR="$HOME/.asdf"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+export PATH=/usr/local/bin:$PATH
+
+
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init --path)"
 
 
 # add /usr/local/sbin
-if [[ -d /usr/local/sbin ]]; then
-    export PATH=/usr/local/sbin:$PATH
-fi
+# if [[ -d /usr/local/sbin ]]; then
+    # export PATH=/usr/local/sbin:$PATH
+# fi
 
 # adding path directory for custom scripts
 export PATH=$DOTFILES/bin:$PATH
-
-# check for custom bin directory and add to path
-if [[ -d ~/bin ]]; then
-    export PATH=~/bin:$PATH
-fi
 
 # source nvm
 # export NVM_DIR=~/.nvm
@@ -57,13 +54,17 @@ fi
 #     source $(brew --prefix nvm)/nvm.sh
 # fi
 
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
-# Base16 Shell
 
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
+# Base16 Shell ($ base16_horizon-dark)
+
+# BASE16_SHELL="$HOME/.config/base16-shell/"
+# [ -n "$PS1" ] && \
+#     [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+#         eval "$("$BASE16_SHELL/profile_helper.sh")"
+
+
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -71,10 +72,10 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
-if [ -f $(brew --prefix asdf)/asdf.sh ]; then
-    . $(brew --prefix asdf)/asdf.sh
-    # . $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
-fi
 
-ZSH_THEME="prompt"
+
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/kelleconnolly/.lmstudio/bin"
+# End of LM Studio CLI section
 
