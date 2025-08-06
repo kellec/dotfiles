@@ -17,16 +17,11 @@ if [ "$(uname)" == "Darwin" ]; then
     echo -e "\n\nBrewing all the things"
     echo "=============================="
     source install/brew.sh
-
-    echo -e "\n\nInstalling node (from nvm)"
-    echo "=============================="
-    source install/nvm.sh
 fi
 
 echo -e "\n\nCreating vim directories"
 echo "=============================="
 mkdir -p ~/.vim-tmp
-
 
 echo -e "\n\nConfiguring zsh as default shell"
 echo "=============================="
