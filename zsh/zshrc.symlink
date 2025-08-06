@@ -1,7 +1,7 @@
 plugins=(git)
 export GPG_TTY=$(tty)
 
-export DOTFILES=$HOME/.dotfiles
+export DOTFILES=$HOME/dotfiles
 export ZSH_CUSTOM="$DOTFILES/zsh"
 
 export TERM=xterm-256color
